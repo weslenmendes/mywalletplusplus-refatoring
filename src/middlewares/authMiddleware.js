@@ -11,7 +11,7 @@ export async function authMiddleware(req, res, next) {
   try {
     let user = jwt.verify(token, process.env.JWT_SECRET);
 
-    res.user = user;
+    res.locals.user = user;
 
     next();
   } catch {
